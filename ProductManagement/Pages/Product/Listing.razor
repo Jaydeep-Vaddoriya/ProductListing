@@ -1,0 +1,163 @@
+﻿@page "/product-list"
+@layout EmptyLayout
+@using ProductManagement.Business
+@using ProductManagement.Model
+@using ProductManagement.Provider
+<link rel="stylesheet" href="css/styles.css">
+
+<div class="product-list-wrapper">
+    <div class="container-fluid p-0">
+        <div class="product-list">
+            <div class="product-list-header">
+                <ul>
+                    <li>
+                        <a href="#">
+                            New Arrival
+                        </a>
+                        </li>
+                    <li><a href="#">Decor</a></li>
+                    <li><a href="#">Denim</a></li>
+                    <li><a href="#">Dress</a></li>
+                    <li><a href="#">Hats</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Sale</a></li>
+                    <li><a href="#">Shoes</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li class="bar">
+                        <i class="fa-solid fa-bars"></i>
+                        <ul class="submenu">
+                            <div class="menu">New Arrival</div>
+                            <div class="menu">Decor</div>
+                            <div class="menu">Denim</div>
+                            <div class="menu">Dress</div>
+                            <div class="menu">Hats</div>
+                            <div class="menu">Men</div>
+                            <div class="menu">Sale</div>
+                            <div class="menu">Shoes</div>
+                            <div class="menu">Women</div>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-header">
+                <h2>HOME</h2>
+                <div class="product-page">
+                    <span>HOME</span>
+                    <i class="icon fa-solid fa-angle-right"></i>
+                    <span>PRODUCT</span>
+                </div>
+            </div>
+            <div class="product-details">
+                <div class="container">
+                    <div class="product-search">
+                        <div class="filter">
+                            <img src="/filter.png"
+                                 alt="filter"
+                                 class="filter-icon" />
+                            <p>Filter</p>
+                        </div>
+                        <div class="search">
+                            <select>
+                                <option value="Featured">Featured</option>
+                                <option value="Featured">Featured</option>
+                                <option value="Featured">Featured</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            <div class="product-menu">
+                                <div class="product-img">
+                                    <img src="/clock.webp" alt="" />
+                                    <div class="heart"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="eye"><i class="fa-solid fa-eye"></i></div>
+                                </div>
+                                <h3>Menu Norn Wall Clock</h3>
+                                <div class="price">$86.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

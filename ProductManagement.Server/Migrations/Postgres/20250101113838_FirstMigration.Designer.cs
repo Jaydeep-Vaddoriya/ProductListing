@@ -12,7 +12,7 @@ using ProductManagement.Data;
 namespace ProductManagement.Server.Migrations.Postgres
 {
     [DbContext(typeof(MigrationContext.PostgresContext))]
-    [Migration("20250101061732_FirstMigration")]
+    [Migration("20250101113838_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,28 +54,6 @@ namespace ProductManagement.Server.Migrations.Postgres
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("ProductManagement.Model.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImage");
-                });
-
             modelBuilder.Entity("ProductManagement.Model.Products", b =>
                 {
                     b.Property<int>("Id")
@@ -94,6 +72,10 @@ namespace ProductManagement.Server.Migrations.Postgres
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -146,17 +128,6 @@ namespace ProductManagement.Server.Migrations.Postgres
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ProductManagement.Model.ProductImage", b =>
-                {
-                    b.HasOne("ProductManagement.Model.Products", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("ProductManagement.Model.Products", b =>
                 {
                     b.HasOne("ProductManagement.Model.Category", "Category")
@@ -171,11 +142,6 @@ namespace ProductManagement.Server.Migrations.Postgres
             modelBuilder.Entity("ProductManagement.Model.Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("ProductManagement.Model.Products", b =>
-                {
-                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }

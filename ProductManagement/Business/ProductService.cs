@@ -38,11 +38,17 @@ namespace ProductManagement.Business
 
         public async Task<List<Category>> SaveProductCategories()
         {
-            if(!_context.Category.Any()) // we will move this code into seed method
+            try
             {
-                _context.Category.Add(new Category { Name = "Mens's Fashion"});
-                _context.Category.Add(new Category { Name = "Women's Fashion"});
-                await _context.SaveChangesAsync();
+                if (!_context.Category.Any()) // we will move this code into seed method
+                {
+                    _context.Category.Add(new Category { Name = "Mens's Fashion" });
+                    _context.Category.Add(new Category { Name = "Women's Fashion" });
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch(Exception ex) 
+            {
             }
             return await _context.Category.ToListAsync();
         }

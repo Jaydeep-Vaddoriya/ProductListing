@@ -9,7 +9,6 @@ namespace ProductManagement.Data
     {
         public DbSet<Products> Product { get; set; }
         public DbSet<Category> Category { get; set; }
-        public DbSet<ProductImage> ProductImage { get; set; }   
         public DbSet<Users> Users { get; set; } 
     }
 }

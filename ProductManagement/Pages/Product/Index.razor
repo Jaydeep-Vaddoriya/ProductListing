@@ -1,1 +1,90 @@
 ﻿@page "/index"
+@using ProductManagement.Business
+@using ProductManagement.Model
+@using ProductManagement.Provider
+@layout EmptyLayout
+<link rel="stylesheet" href="css/styles.css">
+
+<div class="product-wrapper">
+    <div class="container-fluid p-0">
+        <div class="product-header-wrapper">
+            <div class="product-header">
+                <h2>Product</h2>
+                <div class="button">
+                    <button type="button" onclick="window.location.href='/add-product';">Add New Product</button>
+                    <div class="add-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="patient-table">
+                <div class="row m-0">
+                    <div class="col-12 p-0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product-Id </th>
+                                    <th>Product-Name</th>
+                                    <th>Description </th>
+                                    <th>Product-Price </th>
+                                    <th>Product-Code </th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="text"></th>
+                                    <th><input type="text"></th>
+                                    <th><input type="text"></th>
+                                    <th><input type="text"></th>
+                                    <th><input type="text"></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in products)
+                                {
+                                    <tr>
+                                        <td>@product.Id</td>
+                                        <td>@product.Name</td>
+                                        <td>@product.Description</td>
+                                        <td>@product.Price</td>
+                                        <td>@product.ProductCode</td>
+                                        <td class="d-flex align-items-center gap-2">
+                                            <img src="/edit.png" alt="edit" />
+                                            <img src="/delete.png" alt="delete" />
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="previous">
+                <ul>
+                    <li>Previous</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li class="active">3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>Next</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Inject]
+    public ProductService ProductService { get; set; }
+    private List<Products> products = new List<Products>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        //Fetch the data when the component initializes.
+        var response = await ProductService.GetPage<Products>(new PageData());
+        products = TypeHelper.SafeCastToList<Products>(response.Data);
+    }
+}

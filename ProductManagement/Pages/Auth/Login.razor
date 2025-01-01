@@ -1,4 +1,4 @@
-﻿@page "/login"
+﻿@page "/"
 @layout EmptyLayout
 @inject NavigationManager NavigationManager
 @using ProductManagement.Layout
@@ -42,15 +42,12 @@
 
     private void HandleLogin()
     {
-        // For demonstration, hardcoded username and password check
-        if (loginModel.Username == "admin" && loginModel.Password == "password123")
+        if (loginModel.Username == "admin" && loginModel.Password == "admin")
         {
-            // Redirect to home page or a dashboard
-            NavigationManager.NavigateTo("/dashboard");
+            NavigationManager.NavigateTo("/index");
         }
         else
         {
-            // Invalid login
             loginFailed = true;
         }
     }

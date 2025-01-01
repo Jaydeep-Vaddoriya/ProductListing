@@ -12,10 +12,10 @@ namespace ProductManagement.Model
         public string DetailedError { get; set; }
         public object Data { get; set; }
     }
-    public struct PageData
+    public class PageData
     {
-        public int PageSize { get; set; }
-        public int CurrentPage { get; set; }
+        public int PageSize { get; set; } = 10;
+        public int CurrentPage { get; set; } = 1;
         public int RecordsCount { get; set; }
         public bool IsClientSide { get; set; }
         public object Data { get; set; }
