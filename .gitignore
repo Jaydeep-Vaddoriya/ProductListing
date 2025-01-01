@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ProductManagement.Server/bin/Debug/net6.0
+/ProductManagement/.vs
+/ProductManagement/bin/Debug/net8.0
+/ProductManagement/obj
+/ProductManagement.Server/obj
